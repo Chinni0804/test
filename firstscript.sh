@@ -1,0 +1,2 @@
+firstscript
+echo "hello world"
