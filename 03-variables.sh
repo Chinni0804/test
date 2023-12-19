@@ -3,4 +3,8 @@
 USERNAME=$1
 PASSWORD=$2
 
-echo "username is $USERNAME , PASSWORD IS $PASSWRD "
+echo "Please enter username"
+
+read USERNAME 
+
+echo "username is $USERNAME  "
