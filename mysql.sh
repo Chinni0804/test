@@ -9,3 +9,5 @@ then
 else 
     echo " Your ar root user"
 fi
+
+yum install mysql -y
