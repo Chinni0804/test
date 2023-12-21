@@ -11,4 +11,11 @@ else
     echo " Your ar root user"
 fi
 
-yum install mysql -y
+yum install mysqll -y
+
+if [ $? -ne 0 ]
+then 
+    echo "Myql fail"
+else
+    echo "Install myql sucess"
+fi
