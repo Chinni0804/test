@@ -19,3 +19,12 @@ then
 else
     echo "Install myql sucess"
 fi
+
+yum install git -y
+
+if [ $? -ne 0]
+then
+    echo "Git fail"
+else
+    echo "Install git success"
+fi
