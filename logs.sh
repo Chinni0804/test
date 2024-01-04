@@ -5,14 +5,18 @@ TIMESTAMP=$(date +%F-%H-%M-%S)
 
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
+R="\e[31m"
+G="\e[32m"
+N="\e[33m"
+
 echo "$0"
 
 VALIDATE(){
     if [ $1 -ne 0 ]
     then 
-        echo "ERROR:: $2 .... Myql fail"
+        echo -e "ERROR:: $2 .... $R Myql fail"
     else
-        echo "Install $2 ...  sucess"
+        echo -e "Install $2 ... $G sucess"
     fi
 
 }
@@ -27,8 +31,8 @@ fi
 
 yum install mysql -y &>> $LOGFILE
 
-VALIDATE $? "Mysql Success"
+VALIDATE $? -e  " $G Mysql Success"
 
 yum install git -y &>> $LOGFILE
 
-VALIDATE $? "Installing git"
+VALIDATE $? -e  " $G Installing git Sucess"
