@@ -17,7 +17,7 @@ VALIDATE(){
 
 }
 
-if [$ID -ne 0]
+if [ $ID -ne 0]
 then
     echo " ERROR:: Please run as root user"
     exit 1
@@ -25,10 +25,10 @@ else
     echo " you are a root user"
 fi
 
-yum install mysql -y &&>> $LOGFILE
+yum install mysql -y &>> $LOGFILE
 
 VALIDATE $? "Mysql Success"
 
-yum install git -y &&>> $LOGFILE
+yum install git -y &>> $LOGFILE
 
 VALIDATE $? "Installing git"
