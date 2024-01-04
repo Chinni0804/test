@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ID=$(id-u)
+ID=$(id)
 
 VALIDATE(){
     if [ $1 -ne 0 ]
