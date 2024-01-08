@@ -14,9 +14,9 @@ echo "$0"
 VALIDATE(){
     if [ $1 -ne 0 ]
     then 
-        echo -e "ERROR:: $2 .... $R Myql fail"
+        echo  "ERROR:: $2 ....  Myql fail"
     else
-        echo -e "Install $2 ... $G sucess"
+        echo  "Install $2 ...  sucess"
     fi
 
 }
@@ -31,8 +31,8 @@ fi
 
 yum install mysql -y &>> $LOGFILE
 
-VALIDATE $? -e  " $G Mysql Success"
+VALIDATE $?   "  Mysql Success"
 
 yum install git -y &>> $LOGFILE
 
-VALIDATE $? -e  " $G Installing git Sucess"
+VALIDATE $?   "  Installing git Sucess"
