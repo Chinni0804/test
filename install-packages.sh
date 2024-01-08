@@ -22,7 +22,7 @@ else
     echo "You are root user"
 fi # fi means reverse of if indication conditon end
 
-#echo " All Arguement pass: $@" #$@ all argument can pass
+echo " All Arguement pass: $@" #$@ all argument can pass
 
 for package in $@
 do
