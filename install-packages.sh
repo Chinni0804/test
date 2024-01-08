@@ -31,4 +31,7 @@ do
     then
         yum install $package -y
         VALIDATE $? "Installation of $package"
+    else 
+        echo -e "$package is already installed ... $G Skipped"
+    fi
 done
