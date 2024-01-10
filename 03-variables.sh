@@ -11,4 +11,4 @@ echo "username is $USERNAME  "
 
 echo " enter Password $PASSWORD "
 
-read -s PASSWORD
+read -s PASSWORD #hi
