@@ -28,3 +28,5 @@ else
 fi # fi means reverse of if indication conditon end
 
 cp mongo.repo /etc/yum.repos.d
+
+VALIDATE $? " Copied or sucess"
