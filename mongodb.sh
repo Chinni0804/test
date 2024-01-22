@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 ID=$(id -u)
 R="\e[31m"
@@ -27,30 +27,6 @@ else
     echo "You are root user"
 fi # fi means reverse of if indication conditon end
 
-cp mongo.repo /etc/yum.repos.d
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 
-VALIDATE $? " Copied or sucess"
-
-dnf install mongodb-org -y 
-
-VALIDATE $? "Manogodb installed"  &>> $LOGFILE 
-
-systemctl enable mongod
-
-VALIDATE $? "enabled"
-
-systemctl start mongod
-
-VALIDATE $? "sTARTED"
-
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>> $LOGFILE
-
-
-VALIDATE $? "REMOTE ACCESS"
-
-systemctl restart mongod
-
-VALIDATE $? "Restarted manogdb"
-
-
-
+VALIDATE $? "Copied Monogdb Repo" 
