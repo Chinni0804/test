@@ -52,7 +52,7 @@ mkdir -p /app #-p will not throw error if dir not there it will create or else i
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
 
-unzip -o /tmp/catalogue.zip
+unzip -O /tmp/catalogue.zip
 
 VALIDATE $? "unzipped"
 
