@@ -36,15 +36,24 @@ dnf install nodejs -y
 
 VALIDATE $? "Installed nodejs"
 
-useradd roboshop
+#useradd roboshop
+
+id roboshop
+
+if [ $? -ne 0 ]
+then
+    useradd roboshop
+    VALIDATE $? "roboshop useradded"
+else
+    echo -e "roboshop user already exit $G skopping $N"
 
 VALIDATE $? "useradded"
 
-mkdir /app
+mkdir -p /app #-p will not throw error if dir not there it will create or else it will skip
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
 
-unzip /tmp/catalogue.zip
+unzip -o /tmp/catalogue.zip
 
 VALIDATE $? "unzipped"
 
