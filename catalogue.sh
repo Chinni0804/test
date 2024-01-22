@@ -46,8 +46,7 @@ then
     VALIDATE $? "roboshop useradded"
 else
     echo -e "roboshop user already exit $G skopping $N"
-
-VALIDATE $? "useradded"
+fi
 
 mkdir -p /app #-p will not throw error if dir not there it will create or else it will skip
 
