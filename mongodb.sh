@@ -35,11 +35,11 @@ VALIDATE $? "Copied Monogdb Repo"
 
  VALIDATE $? "installing mongodb"
 
-systemctl enable mongodb
+systemctl enable mongod
 
 VALIDATE $? "Enabling mongodb"
 
-systemctl start mongodb
+systemctl start mongod
 
 VALIDATE $? "Starting Mongo DB"
 
