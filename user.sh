@@ -28,7 +28,7 @@ else
     echo "You are root user"
 fi # fi means reverse of if indication conditon end
 
-dnf module disable nodejs -y ;
+dnf module disable nodejs -y 
 dnf module enable nodejs:18 -y
 
 VALIDATE $? "enabled nodejs"
@@ -51,9 +51,9 @@ fi
 
 mkdir -p /app #-p will not throw error if dir not there it will create or else it will skip
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip
 
-unzip -o /tmp/catalogue.zip
+unzip -o /tmp/user.zip
 
 VALIDATE $? "unzipped"
 
@@ -63,25 +63,27 @@ npm install
 
 VALIDATE $? "installed npm"
 
-cp /home/centos/test/catalogue.service /etc/systemd/system/catalogue.service
+cp /home/centos/test/user.service /etc/systemd/system/user.service
 
 VALIDATE $? "copied cs"
 
 systemctl daemon-reload
 
-VALIDATE $? "reload"
+VALIDATE $? " daemon reloaded"
 
-systemctl enable catalogue
+systemctl enable user 
 
-systemctl start catalogue
+VALIDATE $? "enabled user"
+
+systemctl start user
+
+VALIDATE $? "user started"
 
 cp /home/centos/test/mongo.repo /etc/yum.repos.d/mongo.repo
 
-VALIDATE $? "Repo copied"
+VALIDATE $? "cpoied"
 
-dnf install mongodb-org-shell -y
+mongo --host 172.31.80.220 </app/schema/user.js
 
-VALIDATE $? "MONOGDB INSTALLED"
 
-mongo --host 172.31.45.40 </app/schema/catalogue.js
 
