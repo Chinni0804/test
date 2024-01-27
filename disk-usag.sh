@@ -1,6 +1,6 @@
 #/bin/bash
 
-DISK_USAGE=$(df -hT | grep 'tmp|file')
+DISK_USAGE=$(df -hT | grep 'tmp|File')
 DISK_THRESHOLD=1
 message=""
 
@@ -12,6 +12,7 @@ do
     if [ $usage -ge $DISK_THRESHOLD ]
     then 
         message+="High Disk usage on $partition: $usage"
+    fi
 
     done <<< $DISK_USAGE
 
